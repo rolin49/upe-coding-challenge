@@ -7,5 +7,5 @@ https://gist.github.com/austinguo550/381d5e30d825b90900ef60fa39a806f4?fbclid=IwA
 # Building and running
 
 Since the program is written in Python, no building is required.
-To run the program, type `make` into the command line while in the
+To run the program, type 'make' into the command line while in the
 directory.
