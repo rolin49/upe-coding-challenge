@@ -85,10 +85,11 @@ def solve_maze(prev_dir, maze):
             # store a * into the wall's position
             maze.representation[y + dy][x + dx] = '*'
             continue
+    # none of the directions worked: you can't reach the end from here
     maze.path.remove(location)
-    maze.representation[y][x] = 'd'
-    # d for dead end; all paths from here will never go anywhere
+    maze.representation[y][x] = 'd' # d for dead end
     print_rep_as_string(maze.representation)
+    # backtrack
     try_move(opposite_direction[prev_dir])
     return False
 
@@ -107,7 +108,7 @@ def create_maze(dimensions):
 
 # prints the representation object line by line
 def print_rep_as_string(rep):
-    print("Maze:")
+    print('Maze:')
     for row in rep:
         print(''.join(row))
 
