@@ -1,7 +1,7 @@
 import requests, time
 
 # some useful global variables
-url_that_returns_token = "http://ec2-34-216-8-43.us-west-2.compute.amazonaws.com/session"
+url_that_returns_token = 'http://ec2-34-216-8-43.us-west-2.compute.amazonaws.com/session'
 maze_url_template = 'http://ec2-34-216-8-43.us-west-2.compute.amazonaws.com/game?token='
 token = requests.post(url_that_returns_token,
                       data = {'uid': '104790253'}).json()['token']
@@ -20,8 +20,7 @@ direction_to_deltas = {
     'RIGHT': (1, 0)
 }
 
-# defining the Maze struct which stores path, known 2D representation of maze,
-# and current location
+# defining the Maze struct which stores path & known 2D representation of maze
 class Maze():
     def __init__(self, representation):
         self.path = []
@@ -106,6 +105,7 @@ def create_maze(dimensions):
         rep.append(row)
     return rep
 
+# prints the representation object line by line
 def print_rep_as_string(rep):
     print("Maze:")
     for row in rep:
