@@ -23,10 +23,9 @@ direction_to_deltas = {
 # defining the Maze struct which stores path, known 2D representation of maze,
 # and current location
 class Maze():
-    def __init__(self, representation, location):
+    def __init__(self, representation):
         self.path = []
         self.representation = representation
-        self.location = location
 
 # toplevel algorithm
 def solve_challenge():
@@ -42,7 +41,7 @@ def solve_challenge():
         print('This maze has size {}'.format(game_details['maze_size']))
         print('Current location: {}'.format(game_details['current_location']))
         rep = create_maze(game_details['maze_size'])
-        The_maze = Maze(rep, game_details['current_location'])
+        The_maze = Maze(rep)
         print('Starting challenge...')
         if solve_maze(None, The_maze) == True: # solves challenge
             solve_challenge()
@@ -87,7 +86,6 @@ def solve_maze(prev_dir, maze):
             # store a * into the wall's position
             maze.representation[y + dy][x + dx] = '*'
             continue
-    #print('- Backtracking {}'.format(opposite_direction[prev_dir]))
     maze.path.remove(location)
     maze.representation[y][x] = 'd'
     # d for dead end; all paths from here will never go anywhere
